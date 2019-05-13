@@ -62,9 +62,9 @@ declaration:
 
 id_loop:
     IDENT 
-    {printf("id_loop IDENT %s \n", $$);}
+    {printf("id_loop IDENT %s \n", $1);}
     | IDENT COMMA id_loop 
-    {printf("id_loop -> IDENT %s COMMA id_loop\n", $$);}
+    {printf("id_loop -> IDENT %s COMMA id_loop\n", $1);}
     ;
 
 statement_loop:
@@ -184,9 +184,9 @@ term:
     | SUB term2
     {printf("term -> SUB term2\n");}
     | IDENT L_PAREN R_PAREN
-    {printf("term -> IDENT %s L_PAREN R_PAREN\n", $$);}
+    {printf("term -> IDENT %s L_PAREN R_PAREN\n", $1);}
     | IDENT L_PAREN expression expression_loop R_PAREN
-    {printf("term -> IDENT %s L_PAREN expression expression_loop R_PAREN\n", $$);}
+    {printf("term -> IDENT %s L_PAREN expression expression_loop R_PAREN\n", $1);}
     ;
 term2:
     var
@@ -205,9 +205,9 @@ expression_loop:
 
 var:
     IDENT
-    {printf("var -> IDENT %s\n", $$);}
+    {printf("var -> IDENT %s\n", $1);}
     | IDENT L_SQUARE_BRACKET expression R_SQUARE_BRACKET
-    {printf("var -> IDENT %s L_SQUARE_BRACKET expression R_SQUARE_BRACKET\n", $$);}
+    {printf("var -> IDENT %s L_SQUARE_BRACKET expression R_SQUARE_BRACKET\n", $1);}
     ;
 
 %%
